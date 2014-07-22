@@ -1,37 +1,13 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/yasnippet-0.6.1c")
 (require 'yasnippet)
 
-
-;; my private snippets
-(setq my-yasnippets (expand-file-name "~/my-yasnippets"))
-(if (and  (file-exists-p my-yasnippets) (not (member my-yasnippets yas-snippet-dirs)))
-    (add-to-list 'yas-snippet-dirs my-yasnippets))
-;; (message "yas-snippet-dirs=%s" (mapconcat 'identity yas-snippet-dirs ":"))
-
+(yas/global-mode 1)
 (yas/global-mode 1)
 
-(defun my-yas-expand ()
-  (interactive)
-  (if (buffer-file-name)
-      (let ((ext (car (cdr (split-string (buffer-file-name) "\\."))) )
-            (old-yas-flag yas-indent-line)
-            )
-        (when (or (string= ext "ftl") (string= ext "jsp"))
-          (setq yas-indent-line nil)
-          )
-        (yas-expand)
-        ;; restore the flag
-        (setq yas-indent-line old-yas-flag)
-        )
-    (yas-expand)
-    )
-  )
+(setq yas/root-directory "~/.emacs.d/snippets")
+(yas/load-directory yas/root-directory)
 
 ;; default TAB key is occupied by auto-complete
-(global-set-key (kbd "C-c k") 'my-yas-expand)
-;; default hotkey `C-c C-s` is still valid
-;; (global-set-key (kbd "C-c l") 'yas-insert-snippet)
-;; give yas/dropdown-prompt in yas/prompt-functions a chance
 (require 'dropdown-list)
 (setq yas-prompt-functions '(yas-dropdown-prompt
                               yas-ido-prompt
