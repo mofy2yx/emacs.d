@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Warning
 * I'm using [Vim](http://www.vim.org) key binding. Please see "Tips" section if you prefer the Emacs key binding.
 * People in Mainland China may need [goagent](http://code.google.com/p/goagent/) to download packages from ELPA. Run command "http_proxy=http://127.0.0.1:8087 emacs -nw" after starting goagent server.
@@ -130,3 +131,9 @@ It's publicized at http://blog.binchen.org/?p=430. It contains my personal stuff
 <hr>
 
 [![](http://www.linkedin.com/img/webpromo/btn_liprofile_blue_80x15.png)](http://www.linkedin.com/profile/view?id=31199295)
+=======
+emacs.d
+=======
+
+emacs configuration
+>>>>>>> 50ff14d3024d37b073791a32737b844197b334ed
