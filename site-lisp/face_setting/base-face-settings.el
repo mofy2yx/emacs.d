@@ -21,19 +21,12 @@
   "Base face settings."
   ;;中文与外文字体设置
   ;; Setting English Font
-  (set-face-attribute
-   'default nil :font "Monospace 14")
-  ;; Chinese Font
-  (dolist (charset '(kana han symbol cjk-misc bopomofo))
-   (set-fontset-font (frame-parameter nil 'font)
-    charset
-    (font-spec :family "WenQuanYi Zen Hei Mono" :size 14)))
   ;; 颜色配置
   ;; 高亮显示
   (set-face-foreground 'highlight "red")
   (set-face-background 'highlight "blue")
   (setq scroll-margin 0 scroll-conservatively 10000)
-
+  (set-default-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-17-*-*-*-m-0-iso10646-1")
   ;;设置缺省主模式是text，,并进入auto-fill次模式.而不是基本模式fundamental-mode
   (setq default-major-mode 'text-mode)
   (add-hook 'text-mode-hook 'turn-on-auto-fill) 
