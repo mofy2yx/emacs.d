@@ -9,6 +9,7 @@
 (global-highlight-parentheses-mode t)
 
 (require 'autopair)
-(autopair-global-mode 1)
+;(autopair-global-mode 1)
+(add-hook 'c-mode-common-hook #'(lambda () (autopair-mode)))
 (show-paren-mode 1)
 (provide 'init-all-parent)

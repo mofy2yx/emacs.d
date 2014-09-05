@@ -118,7 +118,7 @@
 ;; (require 'init-gist)
 (require 'init-emacspeak)
 (require 'init-pomodoro)
-(require 'init-moz)
+;(require 'init-moz)
 (require 'init-gtags)
 ;; use evil mode (vi key binding)
 (if (not (boundp 'light-weight-emacs)) (require 'init-evil))
