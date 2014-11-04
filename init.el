@@ -157,6 +157,7 @@
 (require 'init-auto-complete)
 (require 'init-planner)
 (require 'init-verilog)
+;;(require 'init-ibus)
 
 ;;----------------------------------------------------------------------------
 ;; Allow access from emacsclient

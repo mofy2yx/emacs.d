@@ -1,135 +1,60 @@
-<<<<<<< HEAD
-# Warning
-* I'm using [Vim](http://www.vim.org) key binding. Please see "Tips" section if you prefer the Emacs key binding.
-* People in Mainland China may need [goagent](http://code.google.com/p/goagent/) to download packages from ELPA. Run command "http_proxy=http://127.0.0.1:8087 emacs -nw" after starting goagent server.
-* C++/C developers, you need tell Emacs where to search headers to make auto-complete work. See section `clang` for details.
-* For Windows users, I would suggest [Cygwin](http://www.cygwin.com/) Emacs instead of native one to avoid some overhead on set up third party tools. But this configuration is still usable even with native windows Emacs.
-* I whitelist packages on melpa because packages in melpa is kind of too cutting edge. Modify variable "melpa-include-packages" in init-elpa.el if you want add new package into that whitelist.
+emacs配置（持续更新）
+emacs还真是少数需要花时间折腾的软件，陆陆续续的使用emacs一年了，还是没多大的长进。心不在这上面
+给出部分快捷键：
+vi的常用键，因为用的是evil-mod
+emacs的一些常用键，非编辑类用键
+C-x2                will split window vertically
+C-x3                will split window horizontally
+C-x|                 will split window horizontally instead
+C-x_                will split window vertically instead
+C-x e               will open ansi-term
+C-c ; ?             will look up documentation for the symbol under the point.
+C-c ; r              will rescan your Doxygen tags file.
+C-c ; f              will insert a Doxygen comment for the next function.
+C-c ; i              will insert a Doxygen comment for the current file.
+C-c ; ;              will insert a Doxygen comment for the current member.
+C-c ; m            will insert a blank multiline Doxygen comment.
+C-c ; s             will insert a blank singleline Doxygen comment.
+C-c ; @           will insert grouping comments around the current region.
+C-c C-c           will comment a region
+C-u C-c C-c    will uncomment a region
 
-# General
+2013.12.18
+我在我的百度云里共享了此配置，附链接
+http://yun.baidu.com/share/link?shareid=2015717545&uk=3877060869(已作废)
+安装方法：
+删除$HOME下的.emacs以及.emacs.d
+在$HOME目录下解压，得到emacs.d，改名为.emacs.d
 
-This configuration is originally cloned from [Steve Purcell's emacs.d](http://github.com/purcell/emacs.d).
+这个配置是我在陈斌的配置的基础上完善的。作了如下修改
+修改了一些小BUG
+加放cedet，yasnippet，auto-complete，增加C＋＋的编程，解决cedet与auto-complete版本上的兼容性问题
+加入自己的主题设置。
+加入multi-term，快捷键C-x e
 
-My first priority is *stable*. So I use fewer cutting-edge packages from [melpa](http://melpa.milkbox.net) than average geeks. Average geeks use 500 packages, I have only installed 200 packages. ;)
+2014.7.20
+昨天折腾了10多个小时的emacs，把配置文件再优化了下。现在可以说能摆脱vi了，不过当打开万行以上的代码时还会出问题，没办法，插件进行语法分析什么的嘛。共享配置文件如下：
 
-To install, Download [this zip file](https://github.com/redguardtoo/emacs.d/archive/master.zip) and extract its content into ~/.emacs.d. Ensure that the 'init.el' contained in this repo ends up at ~/.emacs.d/init.el and old *~/.emacs does NOT exist*.
+正常版
+http://pan.baidu.com/s/1o6mHYum
+daemon版，需用emacsclient运行，度娘看下，很简单
+http://pan.baidu.com/s/1pJ0Tc4F
 
-Thanks to Purcell, this emacs.d has [fancy features](http://github.com/purcell/emacs.d) for most script languages like Clojure, Python, Lisp, PHP, Javascript, Ruby etc. Purcell is basically a web geek who use all the modern web technologies.
+这个版本经之前的要完善的多了，更新内容如下：
+加入doxymacs，可以快捷添加标准注释格式，init-doxygen.el里可看快捷键。
+加入了verilog-mode，解决了配置中加载代码模板时格式出错的配置冲突。
+把终端模式由multi-term改成ansi-term
+简化主题包
+evil-mode下，在insert模式下加入几个快捷键，C-f，C-b，C-p，C-n， M-b， M-f对应于emacs相应的快捷键。加强文本编辑
+加入planner.el，应该说它和org一样出名，强在不同方面。
+增强括号匹配，匹配显示的颜色区分
 
-I will support all the languages a desktop application developer use, like C++, Java, Lua, Objective-C etc.
+推荐使用daemon版，它解决了emacs启动慢的问题。秒开不是问题
 
-## Features
+2014.9.1
+想着还是把配置放到github上了，方便管理。
+https://github.com/mofy2yx/emacs.d.git
+改了个小bug，在配置doxymacs时，需要依赖xml-parse.el。其实这个文件在某些版本的emacs里是自带的。但有些就没有，所以为了方便就直接把它扔到配置里了。
 
-* Real time HTML syntax checker enabled (you need install tidy)
-* git or subversion is *NOT* needed. I removed all the 'git submodule update' stuff.
-* optimized for cross-platform C++ development with CMake and wxWidgets
-* emacs-w3m (console browser)
-* eim (Chinese pinyin input method)
-* org2blog (post wordpress blog with org-mode)
-* make the configuration work on *ALL* platforms (Linux/Cygwin/Mac). BTW, when I say Linux, I mean all the popular distributions (Debian, Ubuntu, Mint, Centos, ArchLinux, Gentoo ...).
-* The configuration will work with Emacs version >=24 but still usable with Emacs version 23 (tested with Emacs 23.4.1).
-* evil-mode and its plugins (Vim key binding)
-* yasnippet and my customized snippets (insert code snippet by typing less keys)
-
-## Third party tools Emacs uses
-
-They are *OPTIONAL*. Your Emacs will NOT crash if they are not installed.
-
-### w3m (web browser in console) 
-* needed by `w3m` (w3m is emacs package name written in elisp)
-* install by OS way
-
-### lua
-* required by `flymake-lua`
-* install by OS way
-
-### aspell or hunspell (RECOMMENDED), and corresponding dictionary (aspell-en, for example)
-* needed by `flyspell`
-* hunspell is the alternative of `aspell`. So you need only install either aspell or hunspell.
-* install by OS way
-* I force the dictionary to "en_US" in init-spelling.el. You can modify it in init-spelling.el.
-
-### sbcl (lisp environment)
-* needed by lisp `slime`
-* install by OS way
-
-### tidy (html tidy program)
-* needed by `web-mode` for real time HTML syntax check
-* install by OS way
-
-### csslint
-* install `node.js` by OS way, then `sudo npm install -g csslint`
-
-### zip and unzip
-* needed by `org-mode` to export org to odt
-* install by OS way
-
-### xsel
-* needed by my clipboard command `copy-to-x-clipboard` and `paste-from-x-clipboard` under Linux
-* install by OS way
-
-### clang (http://clang.llvm.org)
-* needed by `cpputils-cmake`, `flymake`, `company-clang`
-* install by OS way
-* If you use `company-clang` (default), add `(setq company-clang-arguments '("-I/example1/dir" "-I/example2/dir"))` into ~/.emacs.d/init.el
-* If you use `cpputils-cmake` and `cmake`, `cpputils-cmake` will do all the set up for you.
-
-### MozRepl firefox addon (https://addons.mozilla.org/en-us/firefox/addon/mozrepl/)
-* needed by [MozRepl](http://www.emacswiki.org/emacs/MozRepl)
-* install using firefox
-
-### ctags (http://ctags.sourceforge.net)
-* needed by many tags related plugins
-* install by OS way
-
-### GNU Global (http://www.gnu.org/software/global)
-* needed by `gtags`
-* You use this tool to navigate the C/C++/Java/Objective-C code.
-* install by OS way
-
-### pyflakes
-* You need pyflakes for real time python syntax checker like `flymake-python`
-* Install pip by OS way, then `pip install pyflakes`
-* On cygwin you need install `setuptool` in order to install `pip`.
-
-### libreoffice
-* Only one of its binary `soffice` is needed
-* needed when converting odt file into doc (Microsoft Word 97)
-* conversion will happen automatically when exporting org-mode to odt
-* The conversion command is stored in variable `org-export-odt-convert-processes`
-* Install by OS way
-
-### ditaa, grapviz and planetuml to convert ascii art to diagram and uml.
-I don't use them now.
-
-## How to install by OS way
-* [apt-cyg](https://github.com/cfg/apt-cyg) at Cygwin
-* [homebrew](https://github.com/mxcl/homebrew) at Mac
-* any package manager at Linux
-
-## Report bug
-If you find any bug, please file an issue on the github project:
-https://github.com/redguardtoo/emacs.d
-
-## Tips
-* By default EVIL (Vim emulation in Emacs) is used. You can comment out line containing "(require 'init-evil)" in init.el to unload it.
-
-* Some package cannot be downloaded automatically because of network problem.
-You need manually `M-x list-packages` and install it.
-
-* You can speed up the start up by NOT loading some heavy weight components like evil or yasnippet. All you need to do is add below code into ~/.bashrc:
-  ```sh
-  alias e=emacs -q --no-splash --eval="(setq light-weight-emacs t)" -l "$HOME/.emacs.d/init.el"
-  ```
-* If you use `gnus` for email thing (Gmail, for example). Check ~/.emacs.d/init-gnus.el which includes my most settings except my private stuff. There is also [a tutorial at my blog](http://blog.binchen.org/?p=403) on how to use gnus effectively.
-
-* To toggle Chinese input method (eim, for example), press `C-\` or run command `M-x toggle-input-method`.
-
-<hr>
-
-=======
-emacs.d
-=======
-
-emacs configuration
->>>>>>> 50ff14d3024d37b073791a32737b844197b334ed
+2014.11.4
+之前弄的了，没记录。因为emacs在某些系统内不能使用系统自带的输入法。所以就配置了ibus，不过后来发现这个东西与evil－mode相冲突，所以又注释掉了。

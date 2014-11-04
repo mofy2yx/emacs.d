@@ -9,7 +9,7 @@
 (setq w3m-home-page
       (if (file-readable-p "~/html/home.html")
         (concat "file://" (expand-file-name "~/html/home.html"))
-        "http://www.google.com.au"))
+        "http://www.baidu.com"))
 
 (setq w3m-use-toolbar t
       ;w3m-use-tab     nil
