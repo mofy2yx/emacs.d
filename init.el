@@ -54,7 +54,6 @@
 ;;(require 'init-xterm)
 (require 'init-osx-keys)
 (require 'init-gui-frames)
-;;(require 'init-maxframe-settings)
 (require 'init-proxies)
 (require 'init-dired)
 (require 'init-isearch)
@@ -144,9 +143,9 @@
 ;;(require 'init-smartparens)
 (require 'init-slime)
 (when *emacs24*
-    ;(require 'init-company)
+  ;; (require 'init-company)
   ;; Choose either auto-complete or company-mode by commenting one of below two lines!
-  ;; (require 'init-auto-complete) ; after init-yasnippeta to override TAB
+  (require 'init-auto-complete) ; after init-yasnippeta to override TAB
   )
 (require 'init-stripe-buffer)
 (require 'init-popwin)
@@ -154,40 +153,10 @@
 (require 'init-cycode)
 (require 'init-xcscope)
 (require 'init-all-parent)
-(require 'init-auto-complete)
 (require 'init-planner)
 (require 'init-verilog)
 ;;(require 'init-ibus)
 
-;;----------------------------------------------------------------------------
-;; Allow access from emacsclient
-;;----------------------------------------------------------------------------
-;; Don't use emacsclient, and this code make emacs start up slow
-;;(defconst --batch-mode (member "--batch-mode" command-line-args)
-;;          "True when running in batch-mode (--batch-mode command-line switch set).")
-;;
-;;(unless --batch-mode
-;;  (require 'server)
-;;  (when (and (= emacs-major-version 23)
-;;             (= emacs-minor-version 1)
-;;             (equal window-system 'w32))
-;;    ;; Suppress error "directory ~/.emacs.d/server is unsafe" on Windows.
-;;    (defun server-ensure-safe-dir (dir) "Noop" t))
-;;  (condition-case nil
-;;      (unless (server-running-p) (server-start))
-;;    (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
-;;    (error
-;;     (let* ((server-dir (if server-use-tcp server-auth-dir server-socket-dir)))
-;;       (when (and server-use-tcp
-;;                  (not (file-accessible-directory-p server-dir)))
-;;         (display-warning
-;;          'server (format "Creating %S" server-dir) :warning)
-;;         (make-directory server-dir t)
-;;         (server-start))))))
-
-;;----------------------------------------------------------------------------
-;; Variables configured via the interactive 'customize' interface
-;;----------------------------------------------------------------------------
 (if (file-readable-p (expand-file-name "~/.emacs.d/custom.el"))
      (load-file (expand-file-name "~/.emacs.d/custom.el"))
        nil)
