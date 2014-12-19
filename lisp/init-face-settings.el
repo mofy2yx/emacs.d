@@ -4,6 +4,7 @@
 ;; 基本颜色设置
 (require 'base-face-settings)
 (require 'font-lock-face-settings)
+(require 'term-theme)
 
 (defun my-maximized ()
   (interactive)

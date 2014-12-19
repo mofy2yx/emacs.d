@@ -133,7 +133,7 @@
 (require 'init-twittering-mode)
 (require 'init-weibo)
 ;; itune cannot play flac, so I use mplayer+emms instead (updated, use mpd!)
-(require 'init-emms)
+;;(require 'init-emms)
 (require 'init-lua-mode)
 (require 'init-doxygen)
 (require 'init-workgroups2)
