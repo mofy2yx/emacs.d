@@ -7,7 +7,7 @@
        verilog-indent-level-behavioral  4
        verilog-indent-level-directive   1
        verilog-case-indent              2
-       verilog-auto-newline             t
+       verilog-auto-newline             nil
        verilog-auto-indent-on-newline   t
        verilog-tab-always-indent        t
        verilog-auto-endcomments         t

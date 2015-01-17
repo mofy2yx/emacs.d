@@ -141,7 +141,6 @@
 (require 'init-term-mode)
 (require 'init-web-mode)
 (require 'init-sr-speedbar)
-;;(require 'init-smartparens)
 (require 'init-slime)
 (when *emacs24*
   ;; (require 'init-company)
@@ -154,6 +153,7 @@
 (require 'init-cycode)
 (require 'init-xcscope)
 (require 'init-all-parent)
+(require 'init-smartparens)
 (require 'init-planner)
 (require 'init-verilog)
 ;;(require 'init-ibus)

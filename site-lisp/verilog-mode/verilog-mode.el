@@ -1570,7 +1570,8 @@ If set will become buffer local.")
   "Abbrev table in use in Verilog-mode buffers.")
 
 (define-abbrev-table 'verilog-mode-abbrev-table ())
-(verilog-define-abbrev verilog-mode-abbrev-table "class" "" 'verilog-sk-ovm-class)
+(verilog-define-abbrev verilog-mode-abbrev-table "class" "" 'verilog-sk-class)
+(verilog-define-abbrev verilog-mode-abbrev-table "package" "" 'verilog-sk-package)
 (verilog-define-abbrev verilog-mode-abbrev-table "always" "" 'verilog-sk-always)
 (verilog-define-abbrev verilog-mode-abbrev-table "begin" nil `verilog-sk-begin)
 (verilog-define-abbrev verilog-mode-abbrev-table "case" "" `verilog-sk-case)
@@ -13444,6 +13445,23 @@ See also `verilog-header' for an alternative format."
 ;;; ------------------------------------------------------------------------
 ;;; Define a default OVM class, with macros and new()
 ;;; ------------------------------------------------------------------------
+(define-skeleton verilog-sk-package
+  "Insert a class definition"
+  ()
+  > "package " (setq name (skeleton-read "Name: "))";" \n
+  > _ \n
+  > "endpackage" (progn (electric-verilog-terminate-line) nil))
+
+
+(define-skeleton verilog-sk-class
+  "Insert a class definition"
+  ()
+  > "class " (setq name (skeleton-read "Name: "))";" \n
+  > _ \n
+  > "function new();" \n
+  > (- verilog-indent-level) "endfunction" \n
+  > _ \n
+  > "endclass" (progn (electric-verilog-terminate-line) nil))
 
 (define-skeleton verilog-sk-ovm-class
   "Insert a class definition"
