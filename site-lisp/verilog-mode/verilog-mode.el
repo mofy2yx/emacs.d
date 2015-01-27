@@ -13471,7 +13471,7 @@ See also `verilog-header' for an alternative format."
   > "`ovm_object_utils_begin(" name ")" \n
   > (- verilog-indent-level) " `ovm_object_utils_end" \n
   > _ \n
-  > "function new(name=\"" name "\");" \n
+  > "function new(string name=\"" name "\");" \n
   > "super.new(name);" \n
   > (- verilog-indent-level) "endfunction" \n
   > _ \n
@@ -13485,7 +13485,7 @@ See also `verilog-header' for an alternative format."
   > "`uvm_object_utils_begin(" name ")" \n
   > (- verilog-indent-level) "`uvm_object_utils_end" \n
   > _ \n
-  > "function new(name=\"" name "\");" \n
+  > "function new(string name=\"" name "\");" \n
   > "super.new(name);" \n
   > (- verilog-indent-level) "endfunction" \n
   > _ \n
@@ -13499,7 +13499,7 @@ See also `verilog-header' for an alternative format."
   > "`uvm_component_utils_begin(" name ")" \n
   > (- verilog-indent-level) "`uvm_component_utils_end" \n
   > _ \n
-  > "function new(name=\"\", uvm_component parent);" \n
+  > "function new(string name=\"\", uvm_component parent);" \n
   > "super.new(name, parent);" \n
   > (- verilog-indent-level) "endfunction" \n
   > _ \n
