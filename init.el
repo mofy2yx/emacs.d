@@ -1,4 +1,5 @@
 ;; -*- coding: utf-8 -*-
+;;alias emacs='emacsclient -c -n -a ""'
 (setq emacs-load-start-time (current-time))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d"))
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
