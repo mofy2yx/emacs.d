@@ -9,7 +9,7 @@
                                          help-mode
                                          jabber-roster-mode
                                          jabber-chat-mode
-                                         twittering-mode
+                                         ;;twittering-mode
                                          compilation-mode
                                          weibo-timeline-mode
                                          woman-mode
@@ -20,8 +20,8 @@
                                          gnus-group-mode
                                          inf-ruby-mode
                                          gud-mode
-					 term-mode
-                                         w3m-mode
+                                         term-mode
+                                         ;;w3m-mode
                                          speedbar-mode
                                          gnus-summary-mode
                                          gnus-article-mode

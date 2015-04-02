@@ -20,18 +20,22 @@
 (setq package-load-list '(all))
 
 ;; Install all needed
-(defvar my-packages '(ack
-		      ace-jump-mode
-		      org
-		      smex
-		      undo-tree
-		      whitespace-cleanup-mode
-		      window-number
-		      yasnippet
-              evil
-		      whole-line-or-region)
-  )
-
+;;(defvar my-packages '(ack
+;;		      ace-jump-mode
+;;		      org
+;;		      smex
+;;		      undo-tree
+;;		      whitespace-cleanup-mode
+;;		      window-number
+;;		      yasnippet
+;;              evil
+;;		      whole-line-or-region)
+;;  )
+;;
+;;(dolist (p my-packages)
+;;  (when (not (package-installed-p p))
+;;    (package-refresh-contents)
+;;    (package-install p)))
 
 ;;------------------------------------------------------------------------------
 ;; Find and load the correct package.el
