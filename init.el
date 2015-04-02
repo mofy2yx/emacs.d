@@ -1,7 +1,6 @@
 ;; -*- coding: utf-8 -*-
 ;;alias emacs='emacsclient -c -n -a ""'
 (setq emacs-load-start-time (current-time))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d"))
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 ;;----------------------------------------------------------------------------
@@ -53,7 +52,6 @@
 (require 'init-elpa)
 (require 'init-exec-path) ;; Set up $PATH
 (require 'init-frame-hooks)
-;;(require 'init-xterm)
 (require 'init-osx-keys)
 (require 'init-gui-frames)
 (require 'init-proxies)
@@ -69,8 +67,6 @@
 (require 'init-hippie-expand)
 (require 'init-windows)
 (require 'init-sessions)
-;;(require 'init-fonts)
-;(require 'init-growl)
 (require 'init-editing-utils)
 (require 'init-git)
 (require 'init-crontab)
@@ -78,7 +74,6 @@
 (require 'init-markdown)
 (require 'init-csv)
 (require 'init-erlang)
-(require 'init-javascript)
 (require 'init-sh)
 (require 'init-php)
 (require 'init-org)
@@ -88,7 +83,6 @@
 (require 'init-python-mode)
 (require 'init-haskell)
 (require 'init-ruby-mode)
-;(require 'init-rcirc)
 
 (require 'init-lisp)
 
@@ -99,10 +93,7 @@
 
 ;; Chinese inut method
 (require 'init-org2blog)
-;;(require 'init-fill-column-indicator) ;make auto-complete dropdown wierd
 (if (not (boundp 'light-weight-emacs)) (require 'init-yasnippet))
-;; Use bookmark instead
-;; (require 'init-better-registers) ; C-x j - jump to register
 (require 'init-zencoding-mode) ;behind init-better-register to override C-j
 (require 'init-yari)
 (require 'init-cc-mode)
@@ -110,16 +101,13 @@
 (require 'init-cmake-mode)
 (require 'init-csharp-mode)
 (require 'init-linum-mode)
-;(require 'init-delicious) ;make startup slow, I don't use delicious in w3m
 (require 'init-emacs-w3m)
 (if (not (boundp 'light-weight-emacs)) (require 'init-eim))
 (require 'init-thing-edit)
 (require 'init-which-func)
 (require 'init-keyfreq)
-;; (require 'init-gist)
 (require 'init-emacspeak)
 (require 'init-pomodoro)
-;(require 'init-moz)
 (require 'init-gtags)
 ;; use evil mode (vi key binding)
 (if (not (boundp 'light-weight-emacs)) (require 'init-evil))

@@ -24,7 +24,6 @@
                                 (mode . idl-mode)
                                 (mode . web-mode)
                                 (mode . lisp-mode)
-                                (mode . js2-mode)
                                 (mode . c++-mode)
                                 (mode . lua-mode)
                                 (mode . cmake-mode)

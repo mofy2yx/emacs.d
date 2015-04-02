@@ -1,5 +1,6 @@
 ;; load undo-tree and ert
-(add-to-list 'load-path "~/.emacs.d/site-lisp/evil/lib")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/evil")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/evil-surround")
 (require 'evil)
 (evil-mode 1)
 

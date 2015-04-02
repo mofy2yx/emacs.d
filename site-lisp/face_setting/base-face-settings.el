@@ -33,6 +33,10 @@
   (add-hook 'text-mode-hook 'turn-on-auto-fill) 
   ;; 是否使用黑色背景
   (defvar use-black-background t "*Use black ground or not.")
+  ;;effective emacs item 7; no scrollbar, no menubar, no toolbar
+  (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+  (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+  ;;(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 
 ;; 区域显示
 (custom-set-faces

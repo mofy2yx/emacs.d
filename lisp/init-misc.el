@@ -150,10 +150,6 @@
       "Used to mark register positions in a buffer."
       :group 'faces)
 
-;effective emacs item 7; no scrollbar, no menubar, no toolbar
-(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-;(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 ;effiective emacs item9
 (defalias 'qrr 'query-replace-regexp)
 

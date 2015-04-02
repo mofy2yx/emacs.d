@@ -1,4 +1,4 @@
-(add-to-list 'load-path "~/.emacs.d/site-lisp/yasnippet-0.6.1c")
+;;(add-to-list 'load-path "~/.emacs.d/site-lisp/yasnippet-0.6.1c")
 (require 'yasnippet)
 
 

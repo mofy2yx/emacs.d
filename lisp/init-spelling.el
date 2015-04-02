@@ -66,8 +66,7 @@
                 lua-mode-hook
                 crontab-mode-hook
                 perl-mode-hook
-                tcl-mode-hook
-                js2-mode-hook))
+                tcl-mode-hook))
   (add-hook hook 'flyspell-prog-mode))
 
 ;; you can also use "M-x ispell-word" or hotkey "M-$". It pop up a multiple choice
