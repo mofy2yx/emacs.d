@@ -8,8 +8,8 @@
   (highlight-parentheses-mode t)))
 (global-highlight-parentheses-mode t)
 
-;;(require 'autopair)
-;;(autopair-global-mode 1)
+(require 'autopair)
+(autopair-global-mode 1)
 ;;;(add-hook 'c-mode-common-hook #'(lambda () (autopair-mode)))
 ;;
 ;;(add-hook 'python-mode-hook

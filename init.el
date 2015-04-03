@@ -140,7 +140,7 @@
 (require 'init-cycode)
 (require 'init-xcscope)
 (require 'init-all-parent)
-(require 'init-smartparens)
+;;(require 'init-smartparens)
 (require 'init-planner)
 (require 'init-verilog)
 
