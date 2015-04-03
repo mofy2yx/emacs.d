@@ -119,8 +119,6 @@
 (require 'init-sunrise-commander)
 (require 'init-bbdb)
 (require 'init-gnus)
-;;(require 'init-twittering-mode)
-(require 'init-weibo)
 ;; itune cannot play flac, so I use mplayer+emms instead (updated, use mpd!)
 ;;(require 'init-emms)
 (require 'init-lua-mode)
@@ -145,7 +143,6 @@
 (require 'init-smartparens)
 (require 'init-planner)
 (require 'init-verilog)
-;;(require 'init-ibus)
 
 (if (file-readable-p (expand-file-name "~/.emacs.d/custom.el"))
      (load-file (expand-file-name "~/.emacs.d/custom.el"))
