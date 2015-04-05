@@ -49,7 +49,7 @@
 		))
 
 (require 'init-face-settings)
-(require 'init-elpa)
+(require 'init-melpa)
 (require 'init-exec-path) ;; Set up $PATH
 (require 'init-frame-hooks)
 (require 'init-osx-keys)
